@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FFBB44;
+  --color-dark-gary: #717171;
+  --font-gangwon-edu: 'GangwonEdu', sans-serif;
+}
+
+@font-face {
+  font-family: 'GangwonEdu';
+  src: url('/fonts/강원교육현옥샘.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
