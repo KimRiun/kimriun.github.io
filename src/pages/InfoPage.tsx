@@ -11,6 +11,7 @@ export default function InfoPage() {
   return (
     <InfoPageContainer>
       <WindowContainer>
+        <Bright />
         <WindowText>내 삶에서 가장 좋은 날은 오늘이야</WindowText>
       </WindowContainer>
       <DeskContainer>
@@ -60,12 +61,51 @@ const WindowContainer = styled.div`
   }
 `;
 
+const Bright = styled.div`
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 150%;
+  background-color: #fff4ad;
+  opacity: 25%;
+  filter: brightness(1) blur(100px);
+
+  animation: lightAnimation 4s ease-in-out infinite alternate;
+
+  @keyframes lightAnimation {
+    0% {
+      opacity: 10%; /* 처음엔 거의 어두운 상태 */
+      filter: brightness(1) blur(100px); /* 어두운 빛 */
+    }
+    50% {
+      opacity: 25%;
+      filter: brightness(1.2) blur(100px); /* 밝아지기 시작 */
+    }
+    80% {
+      opacity: 55%;
+      width: 130%;
+      height: 160%;
+      filter: brightness(1.5) blur(100px); /* 밝아지기 시작 */
+    }
+    100% {
+      opacity: 60%;
+      width: 130%;
+      height: 160%;
+      filter: brightness(1.5) blur(100px); /* 가장 밝은 상태 */
+    }
+  }
+`;
+
 const WindowText = styled.p`
+  z-index: 2;
   position: absolute;
   top: 30%;
   height: fit-content;
   font-family: 'GangwonEdu';
-  color: #69b6cb;
+  color: #91d7ea;
   font-size: larger;
 `;
 
@@ -73,11 +113,13 @@ const DeskContainer = styled.div`
   position: relative;
   top: -2.5rem;
   min-width: 22.5rem;
+  min-height: 15rem;
   width: 22.5rem;
   height: 15rem;
 `;
 
 const ComputerImage = styled.img`
+  z-index: 2;
   position: absolute;
   top: 0.25rem;
   left: 50%;
@@ -87,6 +129,7 @@ const ComputerImage = styled.img`
 `;
 
 const MailContainer = styled.div`
+  z-index: 2;
   position: absolute;
   top: 3rem;
   left: 50%;
