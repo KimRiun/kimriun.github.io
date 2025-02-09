@@ -1,5 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 
 export default function ProjectsPage() {
-  return <div className='w-full h-screen bg-primary'>ProjectsPage</div>;
+  return <ProjectsPageContainer>ProjectsPage</ProjectsPageContainer>;
 }
+
+const ProjectsPageContainer = styled.div`
+  height: 100vh;
+`;

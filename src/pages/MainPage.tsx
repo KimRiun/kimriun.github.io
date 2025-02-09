@@ -1,4 +1,4 @@
-import React from 'react';
+import styled from 'styled-components';
 import InfoPage from './InfoPage';
 import HistoryPage from './HistoryPage';
 import ProjectsPage from './ProjectsPage';
@@ -6,19 +6,31 @@ import FooterPage from './FooterPage';
 
 export default function MainPage() {
   return (
-    <div className='w-full h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth'>
-      <div className='snap-start'>
+    <MainContainer>
+      <SnapSection>
         <InfoPage />
-      </div>
-      <div className='snap-start'>
+      </SnapSection>
+      <SnapSection>
         <HistoryPage />
-      </div>
-      <div className='snap-start'>
+      </SnapSection>
+      <SnapSection>
         <ProjectsPage />
-      </div>
-      <div className='snap-start'>
+      </SnapSection>
+      <SnapSection>
         <FooterPage />
-      </div>
-    </div>
+      </SnapSection>
+    </MainContainer>
   );
 }
+
+const MainContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+`;
+
+const SnapSection = styled.div`
+  scroll-snap-align: start;
+`;
