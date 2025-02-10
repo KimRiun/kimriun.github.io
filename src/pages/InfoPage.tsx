@@ -6,32 +6,45 @@ import MailSVG from '@images/mail.svg';
 import BookSVG from '@images/book.svg';
 import StandSVG from '@images/stand.svg';
 import DangdangeeSVG from '@images/dangdangee.svg';
+import useModal from '../hooks/useModal';
+import InfoModal from '../components/InfoModal';
 
 export default function InfoPage() {
+  const { isOpen, onOpen } = useModal('info');
+  const [isFirstOpen, setIsFirstOpen] = useState(true);
+
+  const handleMailClick = () => {
+    onOpen();
+    setIsFirstOpen(false);
+  };
+
   return (
     <InfoPageContainer>
       <WindowContainer>
         <Bright />
-        <WindowText>내 삶에서 가장 좋은 날은 오늘이야</WindowText>
+        <WindowText>내 삶에서 가장 좋은 날은 바로 오늘이야</WindowText>
       </WindowContainer>
       <DeskContainer>
-        <ComputerImage src={ComputerSVG} alt='computer' offset='50%' duration='1.6s' />
-        <MailContainer offset='200%' duration='1.7s'>
-          <MailImage src={MailSVG} alt='mail' />
-          <Notification>
-            <PingAnimation />
-            <NotificationDot />
-          </Notification>
-        </MailContainer>
-        <DeskImage src={DeskSVG} alt='desk' offset='40%' duration='1.3s' />
-        <BookImage src={BookSVG} alt='book' offset='100%' duration='1.3s' />
-        <StandImage src={StandSVG} alt='stand' offset='55%' duration='1.2s' />
-        <DangdangeeImage src={DangdangeeSVG} alt='plant' offset='100%' duration='1.5s' />
-        <BottomTextContainer offset='100%' duration='1.5s'>
+        <ComputerImage src={ComputerSVG} alt='computer' $offset='50%' $duration='1.6s' />
+        <MailButton onClick={handleMailClick} $offset='200%' $duration='1.7s'>
+          {!isOpen && <MailImage src={MailSVG} alt='mail' />}
+          {isFirstOpen && (
+            <Notification>
+              <PingAnimation />
+              <NotificationDot />
+            </Notification>
+          )}
+        </MailButton>
+        <DeskImage src={DeskSVG} alt='desk' $offset='40%' $duration='1.3s' />
+        <BookImage src={BookSVG} alt='book' $offset='100%' $duration='1.3s' />
+        <StandImage src={StandSVG} alt='stand' $offset='55%' $duration='1.2s' />
+        <DangdangeeImage src={DangdangeeSVG} alt='plant' $offset='100%' $duration='1.5s' />
+        <BottomTextContainer $offset='100%' $duration='1.5s'>
           <p>Frontend Engineer</p>
-          <p style={{ fontWeight: 'bold' }}>GyeongRyun Kim</p>
+          <b>GyeongRyun Kim</b>
         </BottomTextContainer>
       </DeskContainer>
+      <InfoModal />
     </InfoPageContainer>
   );
 }
@@ -107,10 +120,11 @@ const WindowText = styled.p`
   z-index: 2;
   position: absolute;
   top: 30%;
-  height: fit-content;
+
+  font-size: 1.7rem;
   font-family: 'GangwonEdu';
+  height: fit-content;
   color: #91d7ea;
-  font-size: larger;
 `;
 
 const DeskContainer = styled.div`
@@ -122,21 +136,21 @@ const DeskContainer = styled.div`
   height: 15rem;
 `;
 
-const slideDown = (offset: string) => keyframes`
+const slideDown = ($offset: string) => keyframes`
   0% {
     opacity: 0%;
-    transform: translate(0%, -${offset});
+    transform: translate(0%, -${$offset});
   }
   100% {
     transform: translate(0%, 0);
   }
 `;
 
-const SlideDownImage = styled.img<{ offset: string; duration?: string }>`
+const SlideDownImage = styled.img<{ $offset: string; $duration?: string }>`
   position: absolute;
-  animation: ${({ offset, duration = '1s' }) =>
+  animation: ${({ $offset, $duration = '1s' }) =>
     css`
-      ${slideDown(offset)} ${duration} ease-in-out
+      ${slideDown($offset)} ${$duration} ease-in-out
     `};
 `;
 
@@ -148,16 +162,22 @@ const ComputerImage = styled(SlideDownImage)`
   height: auto;
 `;
 
-const MailContainer = styled.div<{ offset: string; duration?: string }>`
+const MailButton = styled.button<{ $offset: string; $duration?: string }>`
   position: absolute;
   z-index: 2;
   top: 3rem;
   left: 45.5%;
-  cursor: pointer;
-  animation: ${({ offset, duration = '1s' }) =>
+  padding: 0;
+
+  animation: ${({ $offset, $duration = '1s' }) =>
     css`
-      ${slideDown(offset)} ${duration} ease-in-out
+      ${slideDown($offset)} ${$duration} ease-in-out
     `};
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
 `;
 
 const MailImage = styled.img`
@@ -228,7 +248,7 @@ const DangdangeeImage = styled(SlideDownImage)`
   width: 2.5rem;
 `;
 
-const BottomTextContainer = styled.div<{ offset: string; duration?: string }>`
+const BottomTextContainer = styled.div<{ $offset: string; $duration?: string }>`
   position: absolute;
   left: 2rem;
   bottom: 0.5rem;
@@ -238,8 +258,8 @@ const BottomTextContainer = styled.div<{ offset: string; duration?: string }>`
   flex-direction: column;
   gap: 4px;
 
-  animation: ${({ offset, duration = '1s' }) =>
+  animation: ${({ $offset, $duration = '1s' }) =>
     css`
-      ${slideDown(offset)} ${duration} ease-in-out
+      ${slideDown($offset)} ${$duration} ease-in-out
     `};
 `;

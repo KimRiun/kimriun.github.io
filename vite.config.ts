@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@images': '/src/assets/images', // `@`를 `src` 폴더로 지정
+      '@images': '/src/assets/images',
     },
   },
 });
