@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import ComputerSVG from '@images/computer.svg';
 import DeskSVG from '@images/desk.svg';
 import MailSVG from '@images/mail.svg';
@@ -15,18 +15,22 @@ export default function InfoPage() {
         <WindowText>내 삶에서 가장 좋은 날은 오늘이야</WindowText>
       </WindowContainer>
       <DeskContainer>
-        <ComputerImage src={ComputerSVG} alt='computer' />
-        <MailContainer>
+        <ComputerImage src={ComputerSVG} alt='computer' offset='50%' duration='1.6s' />
+        <MailContainer offset='200%' duration='1.7s'>
           <MailImage src={MailSVG} alt='mail' />
           <Notification>
             <PingAnimation />
             <NotificationDot />
           </Notification>
         </MailContainer>
-        <DeskImage src={DeskSVG} alt='desk' />
-        <BookImage src={BookSVG} alt='book' />
-        <StandImage src={StandSVG} alt='stand' />
-        <DangdangeeImage src={DangdangeeSVG} alt='plant' />
+        <DeskImage src={DeskSVG} alt='desk' offset='40%' duration='1.3s' />
+        <BookImage src={BookSVG} alt='book' offset='100%' duration='1.3s' />
+        <StandImage src={StandSVG} alt='stand' offset='55%' duration='1.2s' />
+        <DangdangeeImage src={DangdangeeSVG} alt='plant' offset='100%' duration='1.5s' />
+        <BottomTextContainer offset='100%' duration='1.5s'>
+          <p>Frontend Engineer</p>
+          <p style={{ fontWeight: 'bold' }}>GyeongRyun Kim</p>
+        </BottomTextContainer>
       </DeskContainer>
     </InfoPageContainer>
   );
@@ -73,7 +77,7 @@ const Bright = styled.div`
   opacity: 25%;
   filter: brightness(1) blur(100px);
 
-  animation: lightAnimation 4s ease-in-out infinite alternate;
+  animation: lightAnimation 3s ease-in-out infinite alternate;
 
   @keyframes lightAnimation {
     0% {
@@ -84,14 +88,14 @@ const Bright = styled.div`
       opacity: 25%;
       filter: brightness(1.2) blur(100px); /* 밝아지기 시작 */
     }
-    80% {
+    70% {
       opacity: 55%;
       width: 130%;
       height: 160%;
       filter: brightness(1.5) blur(100px); /* 밝아지기 시작 */
     }
     100% {
-      opacity: 60%;
+      opacity: 80%;
       width: 130%;
       height: 160%;
       filter: brightness(1.5) blur(100px); /* 가장 밝은 상태 */
@@ -118,23 +122,42 @@ const DeskContainer = styled.div`
   height: 15rem;
 `;
 
-const ComputerImage = styled.img`
-  z-index: 2;
+const slideDown = (offset: string) => keyframes`
+  0% {
+    opacity: 0%;
+    transform: translate(0%, -${offset});
+  }
+  100% {
+    transform: translate(0%, 0);
+  }
+`;
+
+const SlideDownImage = styled.img<{ offset: string; duration?: string }>`
   position: absolute;
+  animation: ${({ offset, duration = '1s' }) =>
+    css`
+      ${slideDown(offset)} ${duration} ease-in-out
+    `};
+`;
+
+const ComputerImage = styled(SlideDownImage)`
+  z-index: 2;
   top: 0.25rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 26%;
   width: 11.25rem;
   height: auto;
 `;
 
-const MailContainer = styled.div`
-  z-index: 2;
+const MailContainer = styled.div<{ offset: string; duration?: string }>`
   position: absolute;
+  z-index: 2;
   top: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 45.5%;
   cursor: pointer;
+  animation: ${({ offset, duration = '1s' }) =>
+    css`
+      ${slideDown(offset)} ${duration} ease-in-out
+    `};
 `;
 
 const MailImage = styled.img`
@@ -182,29 +205,41 @@ const NotificationDot = styled.span`
   background-color: #ff5375;
 `;
 
-const DeskImage = styled.img`
-  position: absolute;
+const DeskImage = styled(SlideDownImage)`
   width: 100%;
   bottom: 0;
 `;
 
-const BookImage = styled.img`
-  position: absolute;
+const BookImage = styled(SlideDownImage)`
   right: 1.5rem;
-  bottom: 0.875rem;
+  bottom: 0.9rem;
   width: 1.75rem;
 `;
 
-const StandImage = styled.img`
-  position: absolute;
+const StandImage = styled(SlideDownImage)`
   top: 1.875rem;
   left: 1.5rem;
   width: 3.75rem;
 `;
 
-const DangdangeeImage = styled.img`
-  position: absolute;
+const DangdangeeImage = styled(SlideDownImage)`
   top: 5.375rem;
   right: 1.5rem;
   width: 2.5rem;
+`;
+
+const BottomTextContainer = styled.div<{ offset: string; duration?: string }>`
+  position: absolute;
+  left: 2rem;
+  bottom: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  animation: ${({ offset, duration = '1s' }) =>
+    css`
+      ${slideDown(offset)} ${duration} ease-in-out
+    `};
 `;
