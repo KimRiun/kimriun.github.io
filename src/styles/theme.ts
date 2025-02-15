@@ -34,6 +34,7 @@ export const theme = {
   },
 
   breakpoints: {
+    minDesk: '600px',
     mobile: '480px',
   },
 };

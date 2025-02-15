@@ -1,0 +1,21 @@
+[
+  {
+    "year": "2018~2022",
+    "titleImage": "src/assets/images/cap.svg",
+    "alt": "학사모",
+    "content": "IT공학 전공 학사",
+    "award": "4년 장학생"
+  },
+  {
+    "year": "2023",
+    "titleText": "SSAFY",
+    "content": "삼성 청년 SW 아카데미",
+    "award": "우수 프로젝트 수상"
+  },
+  {
+    "year": "2024",
+    "titleText": "Shinhan",
+    "content": "프로 디지털 아카데미 & 신한투자증권 인턴",
+    "award": "우수 프로젝트 수상"
+  }
+]
