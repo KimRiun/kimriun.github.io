@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "http://kimriun.github.io",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "predeploy": "npm run build",
