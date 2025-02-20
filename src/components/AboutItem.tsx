@@ -30,7 +30,7 @@ const AboutItemContainer = styled.div<{ $isLink: boolean }>`
   gap: 1rem;
 
   color: ${({ theme, $isLink }) =>
-    $isLink ? theme.colors.text.disabled : theme.colors.text.primary};
+    $isLink ? theme.colors.text.disabled : theme.colors.text.secondary};
   text-decoration: ${({ $isLink }) => ($isLink ? 'none' : 'inherit')};
   ${({ theme, $isLink }) =>
     $isLink &&

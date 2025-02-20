@@ -24,7 +24,6 @@ const ProjectsPageContainer = styled.div`
 `;
 
 const ProjectList = styled.div`
-  padding: 1rem;
   width: 85%;
   display: flex;
   flex-direction: column;

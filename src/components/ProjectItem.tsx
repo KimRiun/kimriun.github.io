@@ -54,26 +54,9 @@ export default function ProjectItem() {
             <RoleContainer>
               <ul>
                 <li>
-                  도전 과제 컴포넌트를 만들고 관련된 화면을 개발했습니다.
-                  <ul>
-                    <li>
-                      도전 과제는 ‘공동’, ‘랜덤’, ‘자유’ 유형이 있습니다. 공통 컴포넌트를 만들고 각
-                      유형별 특징에 맞게 구현했습니다.
-                    </li>
-                    <li>
-                      공동 도전 - ex) 달성 인원수에 따라 보상을 표시하는 커스텀 progress indicator
-                      개발 (Agile로 프로젝트를 진행하며 고객 피드백을 반영해 이미지 첨부 기능을
-                      추가했습니다.)
-                    </li>
-                    <li>
-                      랜덤 도전 - ex) KakaoMap API를 활용한 위치 기반 인증 과제, 백엔드 API를 연동한
-                      이미지 인증 과제 개발
-                    </li>
-                    <li>
-                      자유 도전 - ex) 사용자가 생성 및 가져온 도전 과제 리스트를 표시하고,
-                      추억용으로 이미지를 등록할 수 있게 개발
-                    </li>
-                  </ul>
+                  도전 과제 컴포넌트를 만들고 관련된 화면을 개발했습니다. 도전 과제는 ‘공동’,
+                  ‘랜덤’, ‘자유’ 유형으로 나뉘기 때문에 이들의 공통 컴포넌트를 만들고 각 유형별
+                  특징에 맞게 구현했습니다.
                 </li>
               </ul>
             </RoleContainer>
@@ -113,10 +96,9 @@ const ProjectItemContainer = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
-    width: 100%;
     flex-direction: column;
   }
 `;
@@ -134,6 +116,10 @@ const MainContainer = styled.div`
 const Intro = styled.video`
   width: 100%;
   height: auto;
+
+  /* @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+  } */
 `;
 
 const WorkContainer = styled.div`
@@ -153,6 +139,7 @@ const WorkImageList = styled.div`
 `;
 const RoleContainer = styled.div`
   padding: 2rem 1.5rem;
+  color: ${({ theme }) => theme.colors.text.primary};
   background-color: ${({ theme }) => theme.colors.primaryLight};
   word-break: keep-all;
 `;
@@ -167,6 +154,7 @@ const SubContainer = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
     width: 100%;

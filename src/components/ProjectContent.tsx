@@ -16,10 +16,13 @@ export default function ProjectContent({ subTitle, children }: ProjectContentPro
 }
 
 const ContentContainer = styled.div`
-  padding: 1rem;
-
   & > div {
-    padding: 1rem 0.5rem;
+    color: ${({ theme }) => theme.colors.text.secondary};
+    padding: 1rem 0rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
+    padding: 1rem;
   }
 `;
 

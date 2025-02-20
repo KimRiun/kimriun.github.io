@@ -40,7 +40,9 @@ export default function ProjectInfo({ title, description, award, tags }: Project
 }
 
 const ProjectInfoContainer = styled.div`
-  padding: 1rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
+    padding: 1rem;
+  }
 `;
 
 const ProjectTitle = styled.div`
