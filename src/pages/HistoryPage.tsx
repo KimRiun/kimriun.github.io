@@ -21,22 +21,22 @@ const HistoryPageContainer = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
     height: fit-content;
-    padding-bottom: 4rem;
   }
 `;
 
+// TODO: 완성 후 세로 중간으로 옮기기
 const CardContainer = styled.div`
   width: 100%;
-  height: fit-content;
+  margin: auto 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 4rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
-    flex-direction: column;
-  }
+  padding-bottom: 8rem;
 `;

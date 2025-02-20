@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme } from '../styles/theme';
 
 interface HistoryCardProps {
   year: string;
@@ -47,7 +46,7 @@ const InnerFrame = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: ${theme.colors.gray.lightest};
+  background-color: ${({ theme }) => theme.colors.gray.lightest};
   box-shadow: inset 0px 3px 3px rgba(141, 102, 83, 0.1);
 `;
 
@@ -59,7 +58,7 @@ const Year = styled.p`
 
 const Picture = styled.div`
   width: 100%;
-  height: 8rem;
+  height: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,17 +66,18 @@ const Picture = styled.div`
 
 const PictureImg = styled.img`
   width: 5rem;
+  fill: ${({ theme }) => theme.colors.text.secondary};
 `;
 
 const PictureText = styled.p`
   font-weight: bold;
-  color: #717171;
+  color: ${({ theme }) => theme.colors.text.secondary};
 `;
 
 const Content = styled.p`
-  height: 3rem;
+  height: 4rem;
   font-size: 0.9rem;
-  color: #717171;
+  color: ${({ theme }) => theme.colors.text.secondary};
   word-break: keep-all;
   text-align: center;
 `;
