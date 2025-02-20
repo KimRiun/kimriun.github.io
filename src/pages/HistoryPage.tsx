@@ -29,7 +29,6 @@ const HistoryPageContainer = styled.div`
   }
 `;
 
-// TODO: 완성 후 세로 중간으로 옮기기
 const CardContainer = styled.div`
   width: 100%;
   margin: auto 0;

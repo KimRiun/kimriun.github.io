@@ -5,15 +5,20 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   
   body {
+    line-height: 1.5rem;
     font-family: Pretendard, Arial, sans-serif;
     box-sizing: border-box;
     background-color: ${({ theme }) => theme.colors.background.default};
     color: ${({ theme }) => theme.colors.text.primary};
-    font-size: ${({ theme }) => theme.fontSizes.responsiveFont};
   }
 
   b {
     font-weight: bold;
+  }
+
+  ul {
+    list-style: disc; 
+    padding-left: 1rem;
   }
 
   button {

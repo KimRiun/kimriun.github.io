@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@images': '/src/assets/images',
+      '@videos': '/src/assets/videos',
     },
   },
 });

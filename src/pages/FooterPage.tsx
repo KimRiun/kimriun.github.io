@@ -6,6 +6,7 @@ export default function FooterPage() {
 }
 
 const FooterPageContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightest};
+  width: 100%;
   height: 30vh;
+  background-color: ${({ theme }) => theme.colors.gray.lightest};
 `;

@@ -60,7 +60,7 @@ const InfoModalContainer = styled.div<{ $isOpen: boolean }>`
           animation: ${fadeOut} 0.5s ease forwards;
         `}
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     top: 16%;
     gap: 3rem;
     padding: 2rem;
@@ -76,7 +76,7 @@ const ModalContent = styled.p`
   font-size: 1rem;
   line-height: 1.6rem;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     line-height: 2.3rem;
     font-size: 1.2rem;
   }
@@ -84,7 +84,7 @@ const ModalContent = styled.p`
 
 const CloseButton = styled.button`
   color: ${({ theme }) => theme.colors.gray.default};
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.2rem;
   }
 `;

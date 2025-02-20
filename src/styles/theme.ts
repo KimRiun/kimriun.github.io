@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     text: {
-      primary: '#333333',
+      primary: '#20201e',
       secondary: '#595959',
       disabled: '#B0B0B0',
     },
@@ -23,6 +23,7 @@ export const theme = {
     },
 
     primary: '#FFBB44', // 노랑
+    primaryLight: '#FFF9EE', // 연노랑
     secondary: '#70D0FF', // 파랑
   },
 
@@ -30,11 +31,10 @@ export const theme = {
     sm: '12px',
     md: '16px',
     lg: '20px',
-    responsiveFont: 'clamp(12px, 5vw, 20px)',
   },
 
   breakpoints: {
-    minDesk: '600px',
+    minDesk: '1000px',
     mobile: '480px',
   },
 };

@@ -1,8 +1,7 @@
 [
   {
     "year": "2018~2022",
-    "titleImage": "src/assets/images/cap.svg",
-    "alt": "학사모",
+    "titleText": "University",
     "content": "IT공학 전공 학사",
     "award": "4년 장학생"
   },
