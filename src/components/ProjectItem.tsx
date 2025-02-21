@@ -9,7 +9,7 @@ import AboutItem from './AboutItem';
 
 interface ProjectItemProps {
   id: number;
-  videoName: string;
+  videoPath: string;
   tags: { id: number; name: string }[];
   title: string;
   description: string;
@@ -30,7 +30,7 @@ interface ProjectItemProps {
 
 export default function ProjectItem({ data }: { data: ProjectItemProps }) {
   const {
-    videoName,
+    videoPath,
     tags,
     title,
     description,
@@ -45,12 +45,27 @@ export default function ProjectItem({ data }: { data: ProjectItemProps }) {
   return (
     <ProjectItemContainer>
       <MainContainer>
-        <Intro controls>
-          <source src={`/src/assets/videos/${videoName}`} type='video/mp4' />
+        <Intro>
+          <iframe
+            src={`${videoPath}`}
+            title='YouTube video player'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            allowFullScreen
+          />
         </Intro>
         <ProjectInfo title={title} description={description} tags={tags} award={award} />
         <ProjectContent subTitle='Work'>
           <WorkContainer>
+            <RoleContainer>
+              {roles.length == 1 && <p>{roles[0]}</p>}
+              {roles.length > 1 && (
+                <ul>
+                  {roles.map((role, idx) => (
+                    <li key={idx}>{role}</li>
+                  ))}
+                </ul>
+              )}
+            </RoleContainer>
             {workImages.length > 0 && (
               <WorkImageList>
                 {workImages.map((image) => (
@@ -63,15 +78,6 @@ export default function ProjectItem({ data }: { data: ProjectItemProps }) {
                 ))}
               </WorkImageList>
             )}
-            <RoleContainer>
-              {roles.length > 0 && (
-                <ul>
-                  {roles.map((role, idx) => (
-                    <li key={idx}>{role}</li>
-                  ))}
-                </ul>
-              )}
-            </RoleContainer>
           </WorkContainer>
         </ProjectContent>
       </MainContainer>
@@ -103,6 +109,7 @@ const ProjectItemContainer = styled.div`
   height: fit-content;
   display: flex;
   gap: 2rem;
+  padding-bottom: 4rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
     flex-direction: column;
@@ -113,15 +120,24 @@ const MainContainer = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
     width: 100%;
   }
 `;
-const Intro = styled.video`
-  width: 100%;
-  height: auto;
+const Intro = styled.div`
+  position: relative;
+  padding-bottom: 56.25%; // 16:9 비율
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const WorkContainer = styled.div`
@@ -132,7 +148,6 @@ const WorkImageList = styled.div`
   display: flex;
   gap: 1rem;
   padding-top: 1rem;
-  padding-bottom: 2rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
@@ -156,9 +171,10 @@ const SubContainer = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
     width: 100%;
+    gap: 1rem;
   }
 `;
