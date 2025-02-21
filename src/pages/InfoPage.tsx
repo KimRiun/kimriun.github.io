@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { RefObject, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import ComputerSVG from '@images/computer.svg';
 import DeskSVG from '@images/desk.svg';
@@ -8,8 +8,13 @@ import StandSVG from '@images/stand.svg';
 import DangdangeeSVG from '@images/dangdangee.svg';
 import useModal from '../hooks/useModal';
 import InfoModal from '../components/InfoModal';
+import MoveNextPageButton from '../components/MoveNextPageButton';
 
-export default function InfoPage() {
+interface InfoPageProps {
+  sectionsRef: RefObject<HTMLDivElement[]>;
+}
+
+export default function InfoPage({ sectionsRef }: InfoPageProps) {
   const { isOpen, onOpen } = useModal('info');
   const [isFirstOpen, setIsFirstOpen] = useState(true);
 
@@ -44,6 +49,7 @@ export default function InfoPage() {
           <b>GyeongRyun Kim</b>
         </BottomTextContainer>
       </DeskContainer>
+      <MoveNextPageButton sectionsRef={sectionsRef} />
       <InfoModal />
     </InfoPageContainer>
   );

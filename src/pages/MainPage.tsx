@@ -3,20 +3,29 @@ import InfoPage from './InfoPage';
 import HistoryPage from './HistoryPage';
 import ProjectsPage from './ProjectsPage';
 import FooterPage from './FooterPage';
+import { useRef } from 'react';
 
 export default function MainPage() {
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
+
+  const setSectionRef = (el: HTMLDivElement | null) => {
+    if (el && !sectionsRef.current.includes(el)) {
+      sectionsRef.current.push(el);
+    }
+  };
+
   return (
     <MainContainer>
-      <SnapSection>
-        <InfoPage />
+      <SnapSection ref={setSectionRef}>
+        <InfoPage sectionsRef={sectionsRef} />
       </SnapSection>
-      <SnapSection>
+      <SnapSection ref={setSectionRef}>
         <HistoryPage />
       </SnapSection>
-      <SnapSection>
+      <SnapSection ref={setSectionRef}>
         <ProjectsPage />
       </SnapSection>
-      <SnapSection>
+      <SnapSection ref={setSectionRef}>
         <FooterPage />
       </SnapSection>
     </MainContainer>
