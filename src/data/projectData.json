@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "videoName": "toriStory.mp4",
+    "videoPath": "https://www.youtube.com/embed/wM737Xng0bA?si=rEGeisTFY0P7T50I",
     "tags": [
       { "id": 1, "name": "라이프스타일" },
       { "id": 2, "name": "습관추적" }
@@ -38,7 +38,61 @@
       "fileName": "시나리오",
       "filePath": "https://drive.google.com/file/d/1G1xKcj68XbRPMhDQx9Y3GXxalC-C2RVO/view?usp=sharing"
     },
-    "techs": ["React", "TypeScript", "Vite", "pnpm", "PWA", "SWR", "Jotai", "Tailwind", "MUI"],
+    "techs": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "pnpm",
+      "PWA",
+      "SWR",
+      "Jotai",
+      "Tailwind",
+      "MUI",
+      "Git",
+      "Jira"
+    ],
+    "contributions": "Frontend Developer, UI/UX Designer"
+  },
+  {
+    "id": 2,
+    "videoPath": "https://www.youtube.com/embed/udEwJ_zyPKs?si=tD0PFf_BZvcnToGh",
+    "tags": [
+      { "id": 1, "name": "금융" },
+      { "id": 2, "name": "게임" }
+    ],
+    "title": "스톡몬월드(StockmonWorld)",
+    "description": "위치 기반의 게이미피케이션을 적용해 게임 머니를 주식으로 투자할 수 있게 흥미를 유도하는 웹앱 서비스입니다.\n\n돈 많은 백수가 꿈인 20대 주인공이 대주주가 되기 위해 가장 좋은 주식을 찾는 모험 스토리로, 사용자는 지도상 특정 장소로 이동하여 간단한 게임을 통해 스톡몬(주식 종목)을 잡고 현재가, 시가 총액 등 정보를 얻을 수 있습니다. 이렇게 수집한 스톡몬은 게임 머니로 활용해 실제 주식을 받을 수 있게 기획하였고, 보유한 캐릭터를 친구와 교환하여 이익을 얻을 수 있게 하여 20대 신규 회원을 확보하고자 하였습니다.\n\n즐거운 투자 경험을 선사하는 새로운 주식 게임, 스톡몬월드.\n게임을 하듯 투자하고, 모험을 떠나듯 주식을 탐색하며 주식 투자가 낯설고 어렵게 느껴지는 청년들도 게임을 통해 부담 없이 즐기면서 투자에 자연스럽게 접근할 수 있습니다.",
+    "award": true,
+    "workImages": [
+      {
+        "name": "stockmonWorldBook.gif",
+        "alt": "보유한 스톡몬 목록보기",
+        "caption": "보유한 스톡몬 목록보기"
+      },
+      {
+        "name": "stockmonWorldDetail.gif",
+        "alt": "스톡몬 상세 정보 보기",
+        "caption": "스톡몬 상세 정보 보기"
+      },
+      {
+        "name": "stockmonWorldModal.gif",
+        "alt": "주식으로 받기",
+        "caption": "주식으로 받기"
+      }
+    ],
+    "roles": [
+      "보유한 스톡몬 목록을 불러오고, 해당 스톡몬의 상세 내용을 표시하였습니다. 또한, 스톡몬을 주식으로 받을 수 있는 모달을 구현하였습니다."
+    ],
+
+    "abouts": {
+      "workSpace": "프로 디지털 아카데미",
+      "period": "6주 (2024.08 ~ 2024.09)",
+      "team": "6명 (FE 3, BE 3)",
+      "readMeLink": "https://github.com/StockmonGo",
+      "fileName": "발표자료",
+      "filePath": "https://drive.google.com/file/d/1s07CiEAfw0s19x0B-Y3WwjVDKDrGbGhz/view?usp=sharing"
+    },
+    "techs": ["React", "Next.js", "TypeScript", "npm", "PWA", "Jotai", "Tailwind", "Git", "Slack"],
     "contributions": "Frontend Developer, UI/UX Designer"
   }
 ]
