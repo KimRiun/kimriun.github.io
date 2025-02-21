@@ -71,7 +71,7 @@ export default function ProjectItem({ data }: { data: ProjectItemProps }) {
                 {workImages.map((image) => (
                   <WorkImageItem
                     key={image.name}
-                    src={`src/assets/images/${image.name}`}
+                    src={`/images/${image.name}`}
                     alt={image.alt}
                     caption={image.caption}
                   />
