@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FaAward } from 'react-icons/fa6';
 import styled from 'styled-components';
 
@@ -9,6 +10,13 @@ interface ProjectInfoProps {
 }
 
 export default function ProjectInfo({ title, description, award, tags }: ProjectInfoProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const maxLength = 125;
+
+  const shortDescription = description.replace(/\n/g, ' ').slice(0, maxLength) + '...';
+  const longDescription = description.split('\n');
+
   return (
     <ProjectInfoContainer>
       <ProjectTitle>
@@ -24,15 +32,22 @@ export default function ProjectInfo({ title, description, award, tags }: Project
         </TagList>
       )}
       <Description>
-        {description.split('\\n').map((item, i) => {
-          return (
-            <p key={i}>
-              {item}
-              <br />
-            </p>
-          );
-        })}
+        {isExpanded ? (
+          longDescription.map((item, i) => {
+            return (
+              <p key={i}>
+                {item}
+                <br />
+              </p>
+            );
+          })
+        ) : (
+          <p>{shortDescription}</p>
+        )}
       </Description>
+      <ToggleButton onClick={() => setIsExpanded(!isExpanded)}>
+        {isExpanded ? '접기' : '더보기'}
+      </ToggleButton>
     </ProjectInfoContainer>
   );
 }
@@ -82,5 +97,24 @@ const TagList = styled.ul`
 `;
 
 const Description = styled.div`
+  font-size: 1rem;
   padding-top: 1rem;
+`;
+
+const ToggleButton = styled.button`
+  padding: 1rem 0rem 0rem 0rem;
+  color: ${({ theme }) => theme.colors.text.disabled};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    border: solid;
+    border-color: ${({ theme }) => theme.colors.gray.lighter};
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;

@@ -31,5 +31,5 @@ const SubTitle = styled.p`
   font-weight: bold;
   padding-bottom: 0.5rem;
   border-bottom: solid;
-  border-color: ${({ theme }) => theme.colors.gray.lighter};
+  border-color: ${({ theme }) => theme.colors.gray.lightest};
 `;

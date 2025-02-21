@@ -31,8 +31,21 @@ const ProjectList = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5rem;
+
+  & > div {
+    border-bottom: solid;
+    border-color: ${({ theme }) => theme.colors.gray.lighter};
+  }
+
+  & > div:last-child {
+    border-bottom: none;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
     width: 100%;
+    & > div {
+      border-bottom: none;
+    }
   }
 `;

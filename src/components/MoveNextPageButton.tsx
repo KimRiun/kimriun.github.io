@@ -38,6 +38,7 @@ const MoveNextPageButtonContainer = styled.button<{ $isResponsive?: boolean }>`
   height: 2.5rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
+    bottom: 5rem;
     ${({ $isResponsive }) => $isResponsive && 'display: none;'}
   }
 `;
