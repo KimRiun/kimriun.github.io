@@ -2,8 +2,14 @@ import styled from 'styled-components';
 import SectionHead from '../components/SectionHead';
 import HistoryCard from '../components/HistoryCard';
 import historyData from '../data/historyData.json';
+import { RefObject } from 'react';
+import MoveNextPageButton from '../components/MoveNextPageButton';
 
-export default function HistoryPage() {
+interface HistoryPageProps {
+  sectionsRef: RefObject<HTMLDivElement[]>;
+}
+
+export default function HistoryPage({ sectionsRef }: HistoryPageProps) {
   return (
     <HistoryPageContainer>
       <SectionHead title='History' color='default' />
@@ -12,11 +18,13 @@ export default function HistoryPage() {
           <HistoryCard key={index} item={item} />
         ))}
       </CardContainer>
+      <MoveNextPageButton sectionsRef={sectionsRef} isResponsive />
     </HistoryPageContainer>
   );
 }
 
 const HistoryPageContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary};

@@ -20,7 +20,7 @@ export default function MainPage() {
         <InfoPage sectionsRef={sectionsRef} />
       </SnapSection>
       <SnapSection ref={setSectionRef}>
-        <HistoryPage />
+        <HistoryPage sectionsRef={sectionsRef} />
       </SnapSection>
       <SnapSection ref={setSectionRef}>
         <ProjectsPage />

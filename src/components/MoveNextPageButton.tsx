@@ -4,9 +4,10 @@ import ArrowDownSVG from '@images/arrowDown.svg';
 
 interface MoveNextPageButtonProps {
   sectionsRef: RefObject<HTMLDivElement[]>;
+  isResponsive?: boolean;
 }
 
-export default function MoveNextPageButton({ sectionsRef }: MoveNextPageButtonProps) {
+export default function MoveNextPageButton({ sectionsRef, isResponsive }: MoveNextPageButtonProps) {
   const handleMoveDown = () => {
     if (sectionsRef.current) {
       const nextSection = sectionsRef.current.find((section) => {
@@ -21,20 +22,24 @@ export default function MoveNextPageButton({ sectionsRef }: MoveNextPageButtonPr
   };
 
   return (
-    <MoveNextPageButtonContainer onClick={handleMoveDown}>
+    <MoveNextPageButtonContainer onClick={handleMoveDown} $isResponsive={isResponsive}>
       <MoveDownImage src={ArrowDownSVG} />
     </MoveNextPageButtonContainer>
   );
 }
 
-const MoveNextPageButtonContainer = styled.button`
+const MoveNextPageButtonContainer = styled.button<{ $isResponsive?: boolean }>`
   position: absolute;
-  bottom: 3rem;
+  display: block;
+  bottom: 4rem;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0;
-  width: 50px;
-  height: 50px;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
+    ${({ $isResponsive }) => $isResponsive && 'display: none;'}
+  }
 `;
 
 const MoveDownImage = styled.img`
