@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import ToriStoryVideo from '@videos/toriStory.mp4';
 import ToriStoryTogether from '@images/toriStoryTogether.gif';
@@ -13,7 +12,10 @@ import { FaClock } from 'react-icons/fa6';
 import AboutItem from './AboutItem';
 
 export default function ProjectItem() {
-  const tags = ['라이프스타일', '습관추적'];
+  const tags = [
+    { id: 1, name: '라이프스타일' },
+    { id: 2, name: '습관추적' },
+  ];
   const techs = ['React', 'TypeScript', 'Vite', 'pnpm', 'PWA', 'SWR', 'Jotai', 'Tailwind', 'MUI'];
 
   return (

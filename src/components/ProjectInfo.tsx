@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaAward } from 'react-icons/fa6';
 import styled from 'styled-components';
 
@@ -6,7 +5,7 @@ interface ProjectInfoProps {
   title: string;
   description: string;
   award?: boolean;
-  tags: Array<String>;
+  tags: Array<{ id: number; name: string }>;
 }
 
 export default function ProjectInfo({ title, description, award, tags }: ProjectInfoProps) {
@@ -19,16 +18,15 @@ export default function ProjectInfo({ title, description, award, tags }: Project
 
       {tags.length > 0 && (
         <TagList>
-          {tags.map((tag, i) => (
-            <li key={i}>{tag}</li>
+          {tags.map((tag) => (
+            <li key={tag.id}>{tag.name}</li>
           ))}
         </TagList>
       )}
       <Description>
-        {description.split('\\n').map((item) => {
-          console.log(item);
+        {description.split('\\n').map((item, i) => {
           return (
-            <p>
+            <p key={i}>
               {item}
               <br />
             </p>

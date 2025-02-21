@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import SectionHead from '../components/SectionHead';
 import HistoryCard from '../components/HistoryCard';
