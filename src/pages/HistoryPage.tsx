@@ -14,8 +14,8 @@ export default function HistoryPage({ sectionsRef }: HistoryPageProps) {
     <HistoryPageContainer>
       <SectionHead title='History' color='default' />
       <CardContainer>
-        {historyData.map((item, index) => (
-          <HistoryCard key={index} item={item} />
+        {historyData.map((data) => (
+          <HistoryCard key={data.id} data={data} />
         ))}
       </CardContainer>
       <MoveNextPageButton sectionsRef={sectionsRef} isResponsive />

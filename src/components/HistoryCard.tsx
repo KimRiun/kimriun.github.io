@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 interface HistoryCardProps {
+  id: number;
   year: string;
   titleImage?: string;
   alt?: string;
@@ -9,8 +10,8 @@ interface HistoryCardProps {
   award?: string;
 }
 
-export default function HistoryCard({ item }: { item: HistoryCardProps }) {
-  const { year, titleImage, alt, titleText, content, award } = item;
+export default function HistoryCard({ data }: { data: HistoryCardProps }) {
+  const { year, titleImage, alt, titleText, content, award } = data;
 
   return (
     <Frame>

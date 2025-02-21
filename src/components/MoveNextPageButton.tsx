@@ -34,7 +34,7 @@ const MoveNextPageButtonContainer = styled.button<{ $isResponsive?: boolean }>`
   bottom: 4rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 2.5rem;
+  width: 3rem;
   height: 2.5rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.minDesk}) {
@@ -43,7 +43,7 @@ const MoveNextPageButtonContainer = styled.button<{ $isResponsive?: boolean }>`
 `;
 
 const MoveDownImage = styled.img`
-  width: 2.5rem;
+  width: 3rem;
 
   animation: upDown 3s infinite ease-in-out;
   animation-delay: 2s;
@@ -56,20 +56,19 @@ const MoveDownImage = styled.img`
       transform: translateY(0) scale(0.9);
     }
     20% {
-      opacity: 0.5;
       transform: translateY(10px);
     }
     40% {
-      opacity: 0.5;
+      opacity: 0.7;
       transform: translateY(4px);
     }
     60% {
-      opacity: 0.5;
+      opacity: 0.7;
       transform: translateY(10px);
     }
     100% {
-      transform: translateY(-10px);
       opacity: 0;
+      transform: translateY(-10px);
     }
   }
 `;
