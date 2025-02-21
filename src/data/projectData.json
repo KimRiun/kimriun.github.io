@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "videoName": "toriStory.mp4",
+    "tags": [
+      { "id": 1, "name": "라이프스타일" },
+      { "id": 2, "name": "습관추적" }
+    ],
+    "title": "토리스토리(ToriStory)",
+    "description": "소소한 도전 과제를 달성하고 공유하며 마음의 평화를 찾도록 돕는 웹앱 서비스입니다.\n\n경쟁에 지친 청년들이 삶에 활력을 얻기를 바라며 만들었습니다. 예를 들어, 공원을 산책하거나 하늘을 올려다보는 등의 작은 도전을 통해 일상의 여유를 느끼고, 긍정적인 경험을 쌓으며 성공하는 습관을 만들어갈 수 있습니다. 또한, 이러한 도전 과제를 다른 사람들과 공유하며 더욱 큰 동기부여를 얻고, 하루를 되돌아보는 감사 일기를 작성하며 삶의 소중함을 느낄 수 있습니다.\n\n소소하지만 확실한 행복을 전하는 우리들의 이야기, 토리스토리.\n오늘을 행복하게 살아가며, 더 밝은 내일 속에서 스스로를 사랑하는 청년들이 많아지기를 기대합니다.",
+    "award": true,
+    "workImages": [
+      {
+        "name": "toriStoryTogether.gif",
+        "alt": "공동 도전 참여하고 인증하기",
+        "caption": "공동 도전 참여하고 인증하기"
+      },
+      {
+        "name": "toriStoryRandom.gif",
+        "alt": "랜덤 도전 달성하기",
+        "caption": "랜덤 도전 달성하기"
+      },
+      {
+        "name": "toriStoryTotori.gif",
+        "alt": "티켓 뽑기",
+        "caption": "티켓 뽑기"
+      }
+    ],
+    "roles": [
+      "도전 과제 컴포넌트를 만들고 관련된 화면을 개발했습니다. 도전 과제는 ‘공동’, ‘랜덤’, ‘자유’ 유형으로 나뉘기 때문에 이들의 공통 컴포넌트를 만들고 각 유형별 특징에 맞게 구현했습니다."
+    ],
+
+    "abouts": {
+      "workSpace": "삼성 청년 SW 아카데미",
+      "period": "7주 (2023.10 ~ 2023.11)",
+      "team": "6명 (FE 3, BE 3)",
+      "readMeLink": "https://github.com/ToriStory/ToriStory",
+      "fileName": "시나리오",
+      "filePath": "https://drive.google.com/file/d/1G1xKcj68XbRPMhDQx9Y3GXxalC-C2RVO/view?usp=sharing"
+    },
+    "techs": ["React", "TypeScript", "Vite", "pnpm", "PWA", "SWR", "Jotai", "Tailwind", "MUI"],
+    "contributions": "Frontend Developer, UI/UX Designer"
+  }
+]

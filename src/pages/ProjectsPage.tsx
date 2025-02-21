@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import SectionHead from '../components/SectionHead';
 import ProjectItem from '../components/ProjectItem';
+import projectData from '../data/projectData.json';
 
 export default function ProjectsPage() {
   return (
     <ProjectsPageContainer>
       <SectionHead title='Projects' color='primary' />
       <ProjectList>
-        <ProjectItem></ProjectItem>
+        {projectData.map((data) => (
+          <ProjectItem key={data.id} data={data} />
+        ))}
       </ProjectList>
     </ProjectsPageContainer>
   );
