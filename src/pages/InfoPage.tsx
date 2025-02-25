@@ -203,10 +203,10 @@ const MailButton = styled.button<{
 `;
 
 const blink = keyframes`
-  0%, 30%, 60%, 100% {
+  0%, 100% {
     visibility: visible;
   }
-  20%, 40% {
+  50% {
     visibility: hidden;
   }
 `;

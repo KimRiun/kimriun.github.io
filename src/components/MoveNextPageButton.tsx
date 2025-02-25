@@ -47,7 +47,7 @@ const MoveDownImage = styled.img`
   width: 3rem;
 
   animation: upDown 3s infinite ease-in-out;
-  animation-delay: 3s;
+  animation-delay: 5s;
   opacity: 0;
   animation-fill-mode: forwards;
 
