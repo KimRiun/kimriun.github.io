@@ -3,9 +3,11 @@ import styled, { css, keyframes } from 'styled-components';
 import ComputerSVG from '@images/computer.svg';
 import DeskSVG from '@images/desk.svg';
 import MailSVG from '@images/mail.svg';
+import OpenMailSVG from '@images/openMail.svg';
 import BookSVG from '@images/book.svg';
 import StandSVG from '@images/stand.svg';
 import DangdangeeSVG from '@images/dangdangee.svg';
+
 import useModal from '../hooks/useModal';
 import InfoModal from '../components/InfoModal';
 import MoveNextPageButton from '../components/MoveNextPageButton';
@@ -15,11 +17,11 @@ interface InfoPageProps {
 }
 
 export default function InfoPage({ sectionsRef }: InfoPageProps) {
-  const { isOpen, onOpen } = useModal('info');
+  const { isOpen, onOpen, onClose } = useModal('info');
   const [isFirstOpen, setIsFirstOpen] = useState(true);
 
   const handleMailClick = () => {
-    onOpen();
+    isOpen ? onClose() : onOpen();
     setIsFirstOpen(false);
   };
 
@@ -31,10 +33,17 @@ export default function InfoPage({ sectionsRef }: InfoPageProps) {
       </WindowContainer>
       <DeskContainer>
         <ComputerImage src={ComputerSVG} alt='computer' $offset='50%' $duration='1.6s' />
-        <MailButton onClick={handleMailClick} $offset='200%' $duration='1.7s'>
-          {!isOpen && <MailImage src={MailSVG} alt='mail' />}
+        <MailButton
+          as={!isOpen ? 'button' : 'div'}
+          onClick={handleMailClick}
+          $offset='200%'
+          $duration='1.7s'
+          $isFirstOpen={isFirstOpen}
+          $isOpen={isOpen}
+        >
+          <MailImage src={!isOpen ? MailSVG : OpenMailSVG} alt='mail' $isFirstOpen={isFirstOpen} />
           {isFirstOpen && (
-            <Notification>
+            <Notification $isFirstOpen={isFirstOpen}>
               <PingAnimation />
               <NotificationDot />
             </Notification>
@@ -152,7 +161,7 @@ const slideDown = ($offset: string) => keyframes`
   }
 `;
 
-const SlideDownImage = styled.img<{ $offset: string; $duration?: string }>`
+export const SlideDownImage = styled.img<{ $offset: string; $duration?: string }>`
   position: absolute;
   animation: ${({ $offset, $duration = '1s' }) =>
     css`
@@ -168,29 +177,52 @@ const ComputerImage = styled(SlideDownImage)`
   height: auto;
 `;
 
-const MailButton = styled.button<{ $offset: string; $duration?: string }>`
+const MailButton = styled.button<{
+  $offset: string;
+  $duration?: string;
+  $isFirstOpen: boolean;
+  $isOpen: boolean;
+}>`
   position: absolute;
   z-index: 2;
-  top: 3rem;
+  top: ${({ $isOpen }) => ($isOpen ? `2.2rem` : `3rem`)};
   left: 45.5%;
   padding: 0;
 
-  animation: ${({ $offset, $duration = '1s' }) =>
+  animation: ${({ $isFirstOpen, $offset, $duration = '1s' }) =>
+    $isFirstOpen &&
     css`
       ${slideDown($offset)} ${$duration} ease-in-out
     `};
 
   &:hover {
+    cursor: pointer;
     transform: scale(1.1);
     transition: transform 0.3s ease;
   }
 `;
 
-const MailImage = styled.img`
-  width: 2.5rem;
+const blink = keyframes`
+  0%, 30%, 60%, 100% {
+    visibility: visible;
+  }
+  20%, 40% {
+    visibility: hidden;
+  }
 `;
 
-const Notification = styled.span`
+const MailImage = styled.img<{ $isFirstOpen: boolean }>`
+  width: 2.5rem;
+
+  ${({ $isFirstOpen }) =>
+    $isFirstOpen &&
+    css`
+      animation: ${blink} 2s steps(1, end) infinite;
+      animation-delay: 2s;
+    `}
+`;
+
+const Notification = styled.span<{ $isFirstOpen: boolean }>`
   position: relative;
   top: -2rem;
   left: 50%;
@@ -198,6 +230,13 @@ const Notification = styled.span`
   display: flex;
   width: 0.75rem;
   height: 0.75rem;
+
+  ${({ $isFirstOpen }) =>
+    $isFirstOpen &&
+    css`
+      animation: ${blink} 2s steps(1, end) infinite;
+      animation-delay: 2s;
+    `}
 `;
 
 const PingAnimation = styled.span`
