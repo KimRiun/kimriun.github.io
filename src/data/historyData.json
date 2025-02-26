@@ -5,7 +5,8 @@
     "titleText": "University",
     "content": "IT공학 전공 학사",
     "award": "4년 장학생",
-    "image": "university.jpg"
+    "image": "university.jpg",
+    "backgroundColor": "#f0f6e5"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "titleText": "SSAFY",
     "content": "삼성 청년 SW 아카데미",
     "award": "우수 프로젝트 수상",
-    "image": "ssafy.jpg"
+    "image": "ssafy.jpg",
+    "backgroundColor": "#e5eef6"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "titleText": "Shinhan",
     "content": "프로 디지털 아카데미 & 신한투자증권 인턴",
     "award": "우수 프로젝트 수상",
-    "image": "shinhan.jpg"
+    "image": "shinhan.jpg",
+    "backgroundColor": "#e5e6f6"
   }
 ]
