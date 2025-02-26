@@ -7,7 +7,7 @@
     "award": "4년 장학생",
     "image": "university.jpg",
     "backgroundColor": "#f0f6e5",
-    "backData": [
+    "backContents": [
       {
         "title": "자유전공 입학, IT공학전공 졸업",
         "contents": ["자료구조, 알고리즘, 객체 지향 프로그래밍 등 A+ (3.9/4.5)"]
@@ -30,7 +30,7 @@
     "award": "우수 프로젝트 수상",
     "image": "ssafy.jpg",
     "backgroundColor": "#e5eef6",
-    "backData": [
+    "backContents": [
       {
         "title": "이론 학습(1~6월, 6개월)",
         "contents": ["Java, JS, Vue.js, Spring 등"]
@@ -53,7 +53,7 @@
     "award": "우수 프로젝트 수상",
     "image": "shinhan.jpg",
     "backgroundColor": "#e5e6f6",
-    "backData": [
+    "backContents": [
       {
         "title": "클라우드 기반 풀스택 금융 개발자 교육 (3~9월, 190시간)",
         "contents": [
