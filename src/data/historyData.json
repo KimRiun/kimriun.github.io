@@ -18,7 +18,7 @@
       },
       {
         "title": "산학 협력 현장실습 (2022/7~8월, 2개월)",
-        "contents": ["모빌리티 안전관리 서비스 백엔드 인턴"]
+        "contents": ["모빌리티 안전관리 서비스 BE 인턴"]
       }
     ]
   },
@@ -38,9 +38,9 @@
       {
         "title": "팀 프로젝트(7~12월, 6개월)",
         "contents": [
-          "별자리 큐레이션 SNS(우수상) 'UniBirth'",
-          "학급 경제 체험 플랫폼 'MiniNation'",
-          "마음 치료 웹앱(우수상) 'ToriStory'"
+          "별자리 큐레이션 SNS(우수상) 'UniBirth' - BE 리더",
+          "학급 경제 체험 플랫폼 'MiniNation' - FE",
+          "마음 치료 웹앱(우수상) 'ToriStory' - FE"
         ]
       }
     ]
@@ -58,13 +58,13 @@
         "title": "클라우드 기반 풀스택 금융 개발자 교육 (3~9월, 190시간)",
         "contents": [
           "Java, JS, React, SpringBoot, AWS 등",
-          "벨류에이션 웹 플랫폼 'ValueGa'",
-          "주식 투자 게임 웹앱(우수상) 'StockmonWorld'"
+          "기업 가치 평가 웹 플랫폼 'ValueGa' - FE 리더",
+          "주식 투자 게임 웹앱(우수상) 'StockmonWorld' - FE"
         ]
       },
       {
         "title": "인턴 (10월, 한 달)",
-        "contents": ["사내 인사 평가 프로그램 과제", "잔돈 투자 프로젝트 'SOSOL'"]
+        "contents": ["사내 인사 평가 프로그램 과제", "잔돈 활용 자동 매수 프로젝트 'SOSOL' - FE"]
       }
     ]
   }

@@ -108,6 +108,7 @@ const BackContent = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   line-height: 1.7rem;
+  word-break: keep-all;
 `;
 
 const InnerFrame = styled.div<{ $backgroundColor: string }>`
