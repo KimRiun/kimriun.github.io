@@ -6,7 +6,21 @@
     "content": "IT공학 전공 학사",
     "award": "4년 장학생",
     "image": "university.jpg",
-    "backgroundColor": "#f0f6e5"
+    "backgroundColor": "#f0f6e5",
+    "backData": [
+      {
+        "title": "자유전공 입학, IT공학전공 졸업",
+        "contents": ["자료구조, 알고리즘, 객체 지향 프로그래밍 등 A+ (3.9/4.5)"]
+      },
+      {
+        "title": "세계 로봇 대회(2019)",
+        "contents": ["한국팀 선발 장려상", "로봇팔과 연동되는 라인트레이서 아두이노 개발"]
+      },
+      {
+        "title": "산학 협력 현장실습 (2022/7~8월, 2개월)",
+        "contents": ["모빌리티 안전관리 서비스 백엔드 인턴"]
+      }
+    ]
   },
   {
     "id": 2,
@@ -15,7 +29,21 @@
     "content": "삼성 청년 SW 아카데미",
     "award": "우수 프로젝트 수상",
     "image": "ssafy.jpg",
-    "backgroundColor": "#e5eef6"
+    "backgroundColor": "#e5eef6",
+    "backData": [
+      {
+        "title": "이론 학습(1~6월, 6개월)",
+        "contents": ["Java, JS, Vue.js, Spring 등"]
+      },
+      {
+        "title": "팀 프로젝트(7~12월, 6개월)",
+        "contents": [
+          "별자리 큐레이션 SNS(우수상) 'UniBirth'",
+          "학급 경제 체험 플랫폼 'MiniNation'",
+          "마음 치료 웹앱(우수상) 'ToriStory'"
+        ]
+      }
+    ]
   },
   {
     "id": 3,
@@ -24,6 +52,20 @@
     "content": "프로 디지털 아카데미 & 신한투자증권 인턴",
     "award": "우수 프로젝트 수상",
     "image": "shinhan.jpg",
-    "backgroundColor": "#e5e6f6"
+    "backgroundColor": "#e5e6f6",
+    "backData": [
+      {
+        "title": "클라우드 기반 풀스택 금융 개발자 교육 (3~9월, 190시간)",
+        "contents": [
+          "Java, JS, React, SpringBoot, AWS 등",
+          "벨류에이션 웹 플랫폼 'ValueGa'",
+          "주식 투자 게임 웹앱(우수상) 'StockmonWorld'"
+        ]
+      },
+      {
+        "title": "인턴 (10월, 한 달)",
+        "contents": ["사내 인사 평가 프로그램 과제", "잔돈 투자 프로젝트 'SOSOL'"]
+      }
+    ]
   }
 ]

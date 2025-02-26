@@ -11,10 +11,11 @@ interface HistoryCardProps {
   award?: string;
   image: string;
   backgroundColor: string;
+  backData: { title: string; contents: string[] }[];
 }
 
 export default function HistoryCard({ data }: { data: HistoryCardProps }) {
-  const { year, titleText, content, award, image, backgroundColor } = data;
+  const { year, titleText, content, award, image, backgroundColor, backData } = data;
   const [showBack, setShowBack] = useState(false);
   const handleClick = () => setShowBack((prev) => !prev);
 
@@ -32,20 +33,16 @@ export default function HistoryCard({ data }: { data: HistoryCardProps }) {
       ) : (
         <BackFrame $image={`/images/${image}`}>
           <BackContent>
-            <div>
-              <p>클라우드 기반 풀스택 금융 개발자 교육 3~9월 (190시간)</p>
-              <ul>
-                <li>기업 가치 평가 자동 템플릿 'ValueGa'</li>
-                <li>주식 잡기 게임(우수상) 'StockmonWorld'</li>
-              </ul>
-            </div>
-            <div>
-              <p>인턴 10월 (한 달)</p>
-              <ul>
-                <li>사내 인사 평가 프로그램</li>
-                <li>잔돈 투자 SOSOL</li>
-              </ul>
-            </div>
+            {backData.map((item, index) => (
+              <div key={index}>
+                <b>{item.title}</b>
+                <ul>
+                  {item.contents.map((content, contentIndex) => (
+                    <li key={contentIndex}>{content}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </BackContent>
         </BackFrame>
       )}
@@ -70,8 +67,7 @@ const BackFrame = styled.div<{ $image: string }>`
   height: 100%;
   display: flex;
   justify-content: center;
-  /* padding-left: 20%; */
-  /* align-items: center; */
+  align-items: center;
   flex-direction: column;
 
   &::after {
@@ -85,12 +81,15 @@ const BackFrame = styled.div<{ $image: string }>`
     background-size: cover;
     background-position: bottom;
     border-radius: 0.5rem;
-    opacity: 0.1;
+    opacity: 0.06;
   }
 `;
 
 const BackContent = styled.div`
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  line-height: 1.7rem;
 `;
 
 const InnerFrame = styled.div<{ $backgroundColor: string }>`
