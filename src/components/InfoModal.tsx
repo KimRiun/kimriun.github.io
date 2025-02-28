@@ -39,7 +39,7 @@ export default InfoModal;
 
 const InfoModalContainer = styled.div<{ $isOpen: boolean }>`
   position: absolute;
-  top: 18%;
+  top: 14%;
   background-color: white;
   border-radius: 1.2rem;
   padding: 1.5rem;

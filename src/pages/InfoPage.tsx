@@ -9,20 +9,43 @@ import StandSVG from '@images/stand.svg';
 import DangdangeeSVG from '@images/dangdangee.svg';
 
 import useModal from '../hooks/useModal';
-import InfoModal from '../components/InfoModal';
 import MoveNextPageButton from '../components/MoveNextPageButton';
+import Modals from '../hooks/Modals';
 
 interface InfoPageProps {
   sectionsRef: RefObject<HTMLDivElement[]>;
 }
 
+const texts = [
+  {
+    name: 'computer',
+    text: '"경륜이가 가끔 눈도 깜빡여주면 좋겠어요..."',
+  },
+  { name: 'desk', text: '"무겁다... 괜찮다. 나 책상이니까."' },
+  { name: 'book', text: '"깊은 속마음도 잘 알고 있어요. 저는 일기장이거든요."' },
+  { name: 'stand', text: '"밤에도 책 읽는 경륜이를 보면 흐뭇해요."' },
+  { name: 'dangdangee', text: '"제 이름은 당당이에요! 2018년부터 함께 했어요."' },
+];
+
 export default function InfoPage({ sectionsRef }: InfoPageProps) {
   const { isOpen, onOpen, onClose } = useModal('info');
   const [isFirstOpen, setIsFirstOpen] = useState(true);
+  const [hoverText, setHoverText] = useState<string | null>(null);
 
   const handleMailClick = () => {
     isOpen ? onClose() : onOpen();
     setIsFirstOpen(false);
+  };
+
+  const handleMouseEnter = (name: string) => {
+    const matchedText = texts.find((item) => item.name === name);
+    if (matchedText) {
+      setHoverText(matchedText.text);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoverText(null);
   };
 
   return (
@@ -32,9 +55,15 @@ export default function InfoPage({ sectionsRef }: InfoPageProps) {
         <WindowText>내 삶에서 가장 좋은 날은 바로 오늘이야</WindowText>
       </WindowContainer>
       <DeskContainer>
-        <ComputerImage src={ComputerSVG} alt='computer' $offset='50%' $duration='1.6s' />
+        <ComputerImage
+          src={ComputerSVG}
+          alt='computer'
+          $offset='50%'
+          $duration='1.6s'
+          onMouseEnter={() => handleMouseEnter('computer')}
+          onMouseLeave={handleMouseLeave}
+        />
         <MailButton
-          as={!isOpen ? 'button' : 'div'}
           onClick={handleMailClick}
           $offset='200%'
           $duration='1.7s'
@@ -49,15 +78,46 @@ export default function InfoPage({ sectionsRef }: InfoPageProps) {
             </Notification>
           )}
         </MailButton>
-        <DeskImage src={DeskSVG} alt='desk' $offset='40%' $duration='1.3s' />
-        <BookImage src={BookSVG} alt='book' $offset='100%' $duration='1.3s' />
-        <StandImage src={StandSVG} alt='stand' $offset='55%' $duration='1.2s' />
-        <DangdangeeImage src={DangdangeeSVG} alt='plant' $offset='100%' $duration='1.5s' />
-        <BottomTextContainer $offset='100%' $duration='1.5s'>
+        <DeskImage
+          src={DeskSVG}
+          alt='desk'
+          $offset='40%'
+          $duration='1.3s'
+          onMouseEnter={() => handleMouseEnter('desk')}
+          onMouseLeave={handleMouseLeave}
+        />
+        <BookImage
+          src={BookSVG}
+          alt='book'
+          $offset='100%'
+          $duration='1.3s'
+          onMouseEnter={() => handleMouseEnter('book')}
+          onMouseLeave={handleMouseLeave}
+        />
+        <StandImage
+          src={StandSVG}
+          alt='stand'
+          $offset='55%'
+          $duration='1.2s'
+          onMouseEnter={() => handleMouseEnter('stand')}
+          onMouseLeave={handleMouseLeave}
+        />
+        <DangdangeeImage
+          src={DangdangeeSVG}
+          alt='plant'
+          $offset='100%'
+          $duration='1.5s'
+          onMouseEnter={() => handleMouseEnter('dangdangee')}
+          onMouseLeave={handleMouseLeave}
+        />
+        <DeskTextContainer $offset='100%' $duration='1.5s'>
           <p>GyeongRyun Kim</p>
           <b>kimriun27@gmail.com</b>
-        </BottomTextContainer>
+        </DeskTextContainer>
       </DeskContainer>
+      <TalkContainer>
+        <TalkText $isHover={!!hoverText}>{hoverText}</TalkText>
+      </TalkContainer>
       <MoveNextPageButton sectionsRef={sectionsRef} />
       <Modals />
     </InfoPageContainer>
@@ -81,7 +141,7 @@ const WindowContainer = styled.div`
   display: flex;
   flex-shrink: 0;
   justify-content: center;
-  top: 2rem;
+  top: 0rem;
   max-width: 33.5rem;
   width: 100%;
   height: 200px;
@@ -94,7 +154,6 @@ const WindowContainer = styled.div`
 `;
 
 const Bright = styled.div`
-  z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -109,7 +168,7 @@ const Bright = styled.div`
 
   @keyframes lightAnimation {
     0% {
-      opacity: 10%; /* 처음엔 거의 어두운 상태 */
+      opacity: 0%; /* 처음엔 거의 어두운 상태 */
       filter: brightness(1) blur(100px); /* 어두운 빛 */
     }
     50% {
@@ -117,13 +176,14 @@ const Bright = styled.div`
       filter: brightness(1.2) blur(100px); /* 밝아지기 시작 */
     }
     70% {
-      opacity: 55%;
+      opacity: 60%;
       width: 130%;
       height: 160%;
       filter: brightness(1.5) blur(100px); /* 밝아지기 시작 */
     }
+    90%,
     100% {
-      opacity: 80%;
+      opacity: 100%;
       width: 130%;
       height: 160%;
       filter: brightness(1.5) blur(100px); /* 가장 밝은 상태 */
@@ -132,7 +192,6 @@ const Bright = styled.div`
 `;
 
 const WindowText = styled.p`
-  z-index: 2;
   position: absolute;
   top: 30%;
 
@@ -144,7 +203,7 @@ const WindowText = styled.p`
 
 const DeskContainer = styled.div`
   position: relative;
-  top: -2.5rem;
+  top: -4.5rem;
   min-width: 22.5rem;
   min-height: 15rem;
   width: 22.5rem;
@@ -293,7 +352,7 @@ const DangdangeeImage = styled(SlideDownImage)`
   width: 2.5rem;
 `;
 
-const BottomTextContainer = styled.div<{ $offset: string; $duration?: string }>`
+const DeskTextContainer = styled.div<{ $offset: string; $duration?: string }>`
   position: absolute;
   left: 2rem;
   bottom: 0.5rem;
@@ -306,4 +365,29 @@ const BottomTextContainer = styled.div<{ $offset: string; $duration?: string }>`
     css`
       ${slideDown($offset)} ${$duration} ease-in-out
     `};
+`;
+
+const TalkContainer = styled.div`
+  position: relative;
+  top: -2rem;
+  height: 1.5rem;
+`;
+
+const TalkText = styled.p<{ $isHover: boolean }>`
+  width: fit-content;
+  font-family: 'GangwonEdu';
+  font-size: 1.5rem;
+  color: white;
+  animation: ${({ $isHover }) => ($isHover ? 'fadeIn 2s ease forwards' : 'none')};
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 `;
