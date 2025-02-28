@@ -21,7 +21,7 @@ const texts = [
     name: 'computer',
     text: '"경륜이가 가끔 눈도 깜빡여주면 좋겠어요..."',
   },
-  { name: 'desk', text: '"무겁다... 괜찮다. 나 책상이니까."' },
+  { name: 'desk', text: '"무겁다... 괜찮다. 난 책상이니까."' },
   { name: 'book', text: '"깊은 속마음도 잘 알고 있어요. 저는 일기장이거든요."' },
   { name: 'stand', text: '"밤에도 책 읽는 경륜이를 보면 흐뭇해요."' },
   { name: 'dangdangee', text: '"제 이름은 당당이에요! 2018년부터 함께 했어요."' },
@@ -234,6 +234,12 @@ const ComputerImage = styled(SlideDownImage)`
   left: 26%;
   width: 11.25rem;
   height: auto;
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const MailButton = styled.button<{
@@ -332,24 +338,45 @@ const NotificationDot = styled.span`
 const DeskImage = styled(SlideDownImage)`
   width: 100%;
   bottom: 0;
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    transform: translateX(5px);
+  }
 `;
 
 const BookImage = styled(SlideDownImage)`
   right: 1.5rem;
   bottom: 0.9rem;
   width: 1.75rem;
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    transform: translate(-4px, -2px) rotate(8deg);
+  }
 `;
 
 const StandImage = styled(SlideDownImage)`
   top: 1.875rem;
   left: 1.5rem;
   width: 3.75rem;
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    transform: translate(-8px, -7px) rotate(-11deg);
+  }
 `;
 
 const DangdangeeImage = styled(SlideDownImage)`
   top: 5.375rem;
   right: 1.5rem;
   width: 2.5rem;
+
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    transform: translate(10px, -7px) rotate(11deg);
+  }
 `;
 
 const DeskTextContainer = styled.div<{ $offset: string; $duration?: string }>`
