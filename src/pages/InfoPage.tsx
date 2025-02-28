@@ -59,7 +59,7 @@ export default function InfoPage({ sectionsRef }: InfoPageProps) {
         </BottomTextContainer>
       </DeskContainer>
       <MoveNextPageButton sectionsRef={sectionsRef} />
-      <InfoModal />
+      <Modals />
     </InfoPageContainer>
   );
 }
