@@ -54,8 +54,8 @@ export default function InfoPage({ sectionsRef }: InfoPageProps) {
         <StandImage src={StandSVG} alt='stand' $offset='55%' $duration='1.2s' />
         <DangdangeeImage src={DangdangeeSVG} alt='plant' $offset='100%' $duration='1.5s' />
         <BottomTextContainer $offset='100%' $duration='1.5s'>
-          <p>Frontend Engineer</p>
-          <b>GyeongRyun Kim</b>
+          <p>GyeongRyun Kim</p>
+          <b>kimriun27@gmail.com</b>
         </BottomTextContainer>
       </DeskContainer>
       <MoveNextPageButton sectionsRef={sectionsRef} />
@@ -301,7 +301,6 @@ const BottomTextContainer = styled.div<{ $offset: string; $duration?: string }>`
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 4px;
 
   animation: ${({ $offset, $duration = '1s' }) =>
     css`

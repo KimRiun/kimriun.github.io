@@ -54,7 +54,7 @@ export default function ProjectItem({ data }: { data: ProjectItemProps }) {
           />
         </Intro>
         <ProjectInfo title={title} description={description} tags={tags} award={award} />
-        <ProjectContent subTitle='Work'>
+        <ProjectContent subTitle='기여한 부분'>
           <WorkContainer>
             <RoleContainer>
               {roles.length == 1 && <p>{roles[0]}</p>}
@@ -82,10 +82,10 @@ export default function ProjectItem({ data }: { data: ProjectItemProps }) {
         </ProjectContent>
       </MainContainer>
       <SubContainer>
-        <ProjectContent subTitle='Contribution'>
+        <ProjectContent subTitle='역할'>
           <p>{contributions}</p>
         </ProjectContent>
-        <ProjectContent subTitle='About'>
+        <ProjectContent subTitle='소개'>
           <AboutList>
             <AboutItem icon={FaBuilding} content={abouts.workSpace} />
             <AboutItem icon={FaClock} content={abouts.period} />
@@ -96,7 +96,7 @@ export default function ProjectItem({ data }: { data: ProjectItemProps }) {
             )}
           </AboutList>
         </ProjectContent>
-        <ProjectContent subTitle='Tech'>
+        <ProjectContent subTitle='기술'>
           <div>{techs.join(', ')}</div>
         </ProjectContent>
       </SubContainer>

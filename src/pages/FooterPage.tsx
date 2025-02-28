@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export default function FooterPage() {
   return (
     <FooterPageContainer>
-      <div>kimriun27@gmail.com</div>
-      <div>ⓒ 2025.KimRiun All rights reserved.</div>
+      <p>010-4508-9842</p>
+      <p>kimriun27@gmail.com</p>
+      <p>ⓒ 2025.KimRiun All rights reserved.</p>
     </FooterPageContainer>
   );
 }
