@@ -1,22 +1,21 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import useModal from '../hooks/useModal';
 
-export default function InfoModal() {
+export const InfoModal = React.memo(function InfoModal() {
   const { isOpen, onClose } = useModal('info');
   const [isVisible, setIsVisible] = useState(false);
 
-  console.log('info 모달');
-
   useEffect(() => {
     if (isOpen) {
-      setIsVisible(true); // 모달이 열리면 즉시 표시
+      setIsVisible(true);
     } else {
-      setTimeout(() => setIsVisible(false), 500); // 300ms 후에 완전 제거
+      // 모달이 사라지는 애니메이션 기다림
+      setTimeout(() => setIsVisible(false), 500);
     }
   }, [isOpen]);
 
-  if (!isVisible) return null; // FadeOut 애니메이션이 끝난 후 제거
+  if (!isVisible) return null;
   return (
     <InfoModalContainer $isOpen={isOpen} onClick={onClose}>
       <ModalContent>
@@ -34,7 +33,9 @@ export default function InfoModal() {
       <CloseButton onClick={onClose}>확인</CloseButton>
     </InfoModalContainer>
   );
-}
+});
+
+export default InfoModal;
 
 const InfoModalContainer = styled.div<{ $isOpen: boolean }>`
   position: absolute;
@@ -72,7 +73,7 @@ const InfoModalContainer = styled.div<{ $isOpen: boolean }>`
   }
 `;
 
-const ModalContent = styled.p`
+const ModalContent = styled.div`
   font-size: 1rem;
   line-height: 1.6rem;
 
