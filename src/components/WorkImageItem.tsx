@@ -18,11 +18,12 @@ export default function WorkImageItem({ src, alt, caption }: WorkImageItemProps)
 const WorkImageItemContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1 1 0;
   gap: 1rem;
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   p {

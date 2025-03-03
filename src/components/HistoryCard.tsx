@@ -89,6 +89,7 @@ const BackFrame = styled.div<{ $image: string; $backgroundColor: string }>`
 
   &::after {
     content: '';
+    z-index: -1;
     position: absolute;
     top: 0;
     left: 0;

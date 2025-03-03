@@ -1,5 +1,51 @@
 [
   {
+    "id": 1,
+    "videoPath": "https://www.youtube.com/embed/yBw3qtaF5Es?si=zDB5JZPP4r-sZJE8",
+    "tags": [
+      { "id": 1, "name": "금융" },
+      { "id": 2, "name": "주식투자" }
+    ],
+    "title": "소쏠(SoSOL)",
+    "description": "거래가 발생하고 남은 잔돈을 모아 자동으로 주식을 매수해주는 서비스입니다.\n\n청년들의 더치페이 문화에서는 잔돈이 자주 발생합니다. 예를 들어, 친구에게 4,900원을 보내야 할 때 5,000원을 보내면서 자연스럽게 100원의 잔돈이 생깁니다. 이렇게 일상에서 무심코 흘려보내는 잔돈을 자동으로 모아 주식에 투자하는 서비스입니다.\n\n사용자는 증권 계좌와 은행 계좌를 연동하여 별도의 과정 없이도 자동으로 주식을 매수할 수 있습니다. 작은 금액이라도 지속적으로 모으면 큰 기회가 될 수 있습니다. 별다른 고민 없이도 자연스럽게 투자를 경험하고, 자산을 키울 수 있도록 설계되었습니다.\n\n일상 속 잔돈이 만드는 새로운 투자 경험, 소쏠.\n소액이지만 꾸준한 투자 습관을 통해 금융을 더 가깝게 느낄 수 있도록, 누구나 쉽고 부담 없이 시작할 수 있는 서비스를 제공합니다.",
+    "award": true,
+    "workImages": [
+      {
+        "name": "soSolSignUp.gif",
+        "alt": "계좌 연결하기",
+        "caption": "계좌 연결하기"
+      },
+      {
+        "name": "soSolList.gif",
+        "alt": "잔돈 및 보유 종목 보기",
+        "caption": "잔돈 및 보유 종목 보기"
+      },
+      {
+        "name": "soSolPayment.gif",
+        "alt": "거래 발생시키기(테스트용)",
+        "caption": "거래 발생시키기(테스트용)"
+      }
+    ],
+    "roles": [
+      "프론트엔드 환경 세팅부터 UI/UX 설계와 개발까지 처음부터 끝까지 혼자 완성했습니다.",
+      "계좌 연결 화면에서는 은행 계좌, 증권 계좌, 잔돈 단위, 목표 종목을 form으로 입력받습니다. 이때 뒤로가기를 눌러도 입력한 정보가 유지되도록 상태관리를 통해 저장하고 있습니다. 증권 계좌와 종목 목록은 API 요청을 통해 불러옵니다.",
+      "잔돈 및 보유 종목 보기 화면에서는 잔돈이 얼만큼 모여있고, 투자 현황이 어떤지 확인할 수 있습니다. 보유 종목은 MUI 차트를 이용하였으며 하단 라벨을 table로 구현하였습니다.",
+      "거래를 직접 발생시켜 잔돈 흐름을 테스트 할 수 있는 화면에서는 useState를 이용해 거래 발생 후 예상 잔액을 바로 확인할 수 있도록 하였습니다. 비밀번호를 올바르게 입력한 경우에만 결제 API가 요청되도록 하였습니다.",
+      "그 외 환경 세팅, 와이어프레임, UI/UX 설계, API 연결, 최종 발표를 맡았습니다."
+    ],
+
+    "abouts": {
+      "workSpace": "신한투자증권",
+      "period": "1주 (2024.10.21 ~ 2024.10.29)",
+      "team": "4명 (FE 1, BE 3)",
+      "readMeLink": "https://github.com/Shinhan-soSOL",
+      "fileName": "발표자료",
+      "filePath": "https://drive.google.com/file/d/1hbhtCt49BpGplpYxY35X5EUWe5u590IE/view?usp=drive_link"
+    },
+    "techs": ["React", "JavaScript", "npm", "Jotai", "Tailwind", "MUI", "Git"],
+    "contributions": "Frontend Developer, UI/UX Designer"
+  },
+  {
     "id": 2,
     "videoPath": "https://www.youtube.com/embed/udEwJ_zyPKs?si=tD0PFf_BZvcnToGh",
     "tags": [
@@ -46,7 +92,7 @@
     "contributions": "Frontend Developer, UI/UX Designer"
   },
   {
-    "id": 1,
+    "id": 3,
     "videoPath": "https://www.youtube.com/embed/wM737Xng0bA?si=rEGeisTFY0P7T50I",
     "tags": [
       { "id": 1, "name": "라이프스타일" },
