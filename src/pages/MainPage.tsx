@@ -4,7 +4,7 @@ import HistoryPage from './HistoryPage';
 import ProjectsPage from './ProjectsPage';
 import FooterPage from './FooterPage';
 import { useRef } from 'react';
-// import ReviewPage from './ReviewPage';
+import ReviewPage from './ReviewPage';
 
 export default function MainPage() {
   const sectionsRef = useRef<HTMLDivElement[]>([]);
@@ -26,9 +26,9 @@ export default function MainPage() {
       <SnapSection ref={setSectionRef}>
         <ProjectsPage />
       </SnapSection>
-      {/* <SnapSection ref={setSectionRef}>
+      <SnapSection ref={setSectionRef}>
         <ReviewPage />
-      </SnapSection> */}
+      </SnapSection>
       <SnapSection ref={setSectionRef}>
         <FooterPage />
       </SnapSection>
