@@ -30,7 +30,9 @@
 
 ### 첫 화면
 
+<div>
 <img src = "https://github.com/user-attachments/assets/eed4e708-4648-4d51-af64-57a4525b91e0" width="645px" height="auto">
+</div>
 <img src = "https://github.com/user-attachments/assets/0e047e9f-e981-4125-a070-7592c7585acd" width="141px" height="auto">
 <img src = "https://github.com/user-attachments/assets/305a81be-fd5b-4bb9-b5f8-8514d7cef11c" width="500px" height="auto">
 
