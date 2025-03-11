@@ -1,7 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { PATH } from './config/constants';
 import MainPage from './pages/MainPage';
-import './styles/fonts.css';
 
 const router = createBrowserRouter([
   {

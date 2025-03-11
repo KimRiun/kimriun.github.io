@@ -1,4 +1,5 @@
 @font-face {
   font-family: 'GangwonEdu';
   src: url('/fonts/강원교육현옥샘.ttf') format('truetype');
+  font-display: block; /* FOUT 방지 -> 폰트 로드 전 텍스트 표시 안함  */
 }
